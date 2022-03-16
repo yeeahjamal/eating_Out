@@ -1,0 +1,41 @@
+---
+title: "Eating Out"
+author: "your name here"
+output: 
+  html_document:
+    number_sections: true
+    toc: true
+    toc_depth: 5
+date: "`r Sys.Date()`"    
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## The data comes from the 1998 General Social Survey answer this question
+
+$H_0$ There is no difference among the various races with frequency of eating out  
+$H_A$ There is a statistical difference between at least two races with the frequency of eating out  
+
+
+```{r include=FALSE,echo=FALSE}
+source(file="fisherXY.R")
+require(tidyverse)
+require(tigerstats)
+require(knitr)
+require(foreign)
+GSS <-read.dta(file="GSS1998.dta")
+GSS <- droplevels(GSS)
+mydata <- select(GSS,race,age,eatout)
+mydata <- na.omit(mydata)
+```
+
+
+
+
+
+
+
+
