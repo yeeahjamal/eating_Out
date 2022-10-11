@@ -14,7 +14,8 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## The data comes from the 1998 General Social Survey answer this question
+## There were two years in which the General Social Survey asked about the frequency of eating out.
+### Find those years and for the first year the question was asked download that years data in a stata format - its name will be "GSSxxxx.dta" where the xxxx is replaced by the year.  For example if the year was 1983 its name would be GSS1983.dta. Your assignment is to download the GSS yearly dataset for the first year the question was asked and then  write up the answer to the question by editing the  code block in line 31 to eval=TRUE and finish the job. 
 
 $H_0$ There is no difference among the various races with frequency of eating out  
 $H_A$ There is a statistical difference between at least two races with the frequency of eating out  
@@ -26,7 +27,9 @@ require(tidyverse)
 require(tigerstats)
 require(knitr)
 require(foreign)
-GSS <-read.dta(file="GSS1998.dta")
+```
+```{r, eval=FALSE}
+GSS <-read.dta(file="GSSxxxx.dta")
 GSS <- droplevels(GSS)
 mydata <- select(GSS,race,age,eatout)
 mydata <- na.omit(mydata)
