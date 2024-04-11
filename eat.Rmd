@@ -34,17 +34,42 @@ require(tigerstats)
 require(knitr)
 #require(haven)
 GSS=read.csv('GSS1996.csv')
+
 ```
 
 ## Methods
-
+Both 'race' and 'eatout' are categorical. Therefore we use the cat~cat file
 ## Descriptive results
+
+### graphical description
+```{r}
+barchartGC(~eatout + race,data=GSS)
+barchartGC(~eatout + race,data=GSS, type="percent")
+
+```
+
+###numerical description 
+```{r}
+table = xtabs(~eatout + race, data=GSS)
+print(table)
+rowPerc(table)
+colPerc(table)
+```
+
 
 ## infrential results
 ### Chi-squared test results
 
+```{r}
+chisq.test(table)
+chisqtestGC(table)
+```
 
 ### fisherXY test results
+```{r}
+fisher.test(table)
+fisherXY(GSS$eatout,GSS$race)
+```
 
 ## Summary and Conclusions
 
