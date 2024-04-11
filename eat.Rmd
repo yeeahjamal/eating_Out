@@ -14,11 +14,17 @@ date: "`r Sys.Date()`"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## There were two years in which the General Social Survey asked about the frequency of eating out. The variable name you are looking for is "eatout".
-### Find those years and for the first year the question was asked download that years data in a stata format - its name will be "GSSxxxx.dta" where the xxxx is replaced by the year.  For example if the year was 1983 its name would be GSS1983.dta. Your assignment is to download the GSS yearly dataset for the first year the question was asked and then  write up the answer to the question by editing the  code block in line 31 to eval=TRUE and finish the job. 
+# Who dines out more often?
+There were two years in which the General Social Survey asked about the frequency of eating out. We look at one of them.
 
-$H_0$ There is no difference among the various races with frequency of eating out  
-$H_A$ There is a statistical difference between at least two races with the frequency of eating out  
+The variable name of interest is "eatout."  The URL is https://gss.norc.org/ In GSS data explorer look for "eatout." 
+
+## Find those years 
+For the first year the question was asked (1996) we have data. Your assignment is to analyze the GSS yearly data for 1996 and write a statistical report that answers the question.  The data are in the Files section.   
+
+## introduction
+$H_0$ There is no difference among the various races with regard to frequency of eating out  
+$H_A$ There is a statistical difference between at least two races with rgard to the frequency of eating out  
 
 
 ```{r include=FALSE,echo=FALSE}
@@ -26,16 +32,21 @@ source(file="fisherXY.R")
 require(tidyverse)
 require(tigerstats)
 require(knitr)
-require(foreign)
-```
-```{r, eval=FALSE}
-GSS <-read.dta(file="GSSxxxx.dta")
-GSS <- droplevels(GSS)
-mydata <- select(GSS,race,age,eatout)
-mydata <- na.omit(mydata)
+#require(haven)
+GSS=read.csv('GSS1996.csv')
 ```
 
+## Methods
 
+## Descriptive results
+
+## infrential results
+### Chi-squared test results
+
+
+### fisherXY test results
+
+## Summary and Conclusions
 
 
 
