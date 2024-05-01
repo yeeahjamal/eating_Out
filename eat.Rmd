@@ -1,6 +1,6 @@
 ---
 title: "Eating Out"
-author: "your name here"
+author: "Jamal Evans"
 output: 
   html_document:
     number_sections: true
@@ -39,7 +39,6 @@ GSS=read.csv('GSS1996.csv')
 
 ## Methods
 Both 'race' and 'eatout' are categorical. Therefore we use the cat~cat file
-## Descriptive results
 
 ### graphical description
 ```{r}
@@ -47,6 +46,8 @@ barchartGC(~eatout + race,data=GSS)
 barchartGC(~eatout + race,data=GSS, type="percent")
 
 ```
+
+x axis is eatout(1 = yes. 2 = no) labels on the colums are (1=Black, 2 = White, and 3 = other)
 
 ###numerical description 
 ```{r}
@@ -58,8 +59,8 @@ colPerc(table)
 
 
 ## infrential results
+The P isquared table test the hypothesis and proves independence between the variables 
 ### Chi-squared test results
-
 ```{r}
 chisq.test(table)
 chisqtestGC(table)
@@ -73,7 +74,8 @@ fisherXY(GSS$eatout,GSS$race)
 
 ## Summary and Conclusions
 
-
+race1 eats out more while 2 and 3 are about the same percentage
+0.00038 is not smaller thean .5 so there is no difference between white and black consumers when it comes to eatingOUT
 
 
 
